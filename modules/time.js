@@ -5,8 +5,8 @@ process.stdin.setEncoding('utf8');
 function time(){
 	var uptime = os.uptime();
 	var hours = Math.floor(uptime / 60);
-	var minutes = (uptime - (hours * 3600)) / 60;
-  var seconds = uptime - (hours * 3600) - (minutes * 60);
+	var minutes = Math.floor(uptime - (hours * 3600) / 60);
+  	var seconds = Math.floor(uptime - (hours * 3600) - (minutes * 60));
 	console.log('Uptime: ' +  hours + ' hours ' + minutes + ' minutes ' + seconds + ' seconds.');
 }
 
