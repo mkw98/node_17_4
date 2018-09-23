@@ -1,16 +1,16 @@
-var hours;
-var minutes;
-var seconds;
+var os = require('os');
+process.stdin.setEncoding('utf8');
 
-var hours = uptime / 60;
-var minutes = (uptime - (hours * 3600)) / 60;
-var seconds = uptime - (hours * 3600) - (minutes * 60);
 
-//function formatUptime(uptime) {
-//  if (uptime < 60) {
-//    return `${uptime} sek.`;
-//  }
-//}
+function time(){
+	var uptime = os.uptime();
+	var hours = Math.floor(uptime / 60);
+	var minutes = (uptime - (hours * 3600)) / 60;
+  var seconds = uptime - (hours * 3600) - (minutes * 60);
+	console.log('Uptime: ' +  hours + ' hours ' + minutes + ' minutes ' + seconds + ' seconds.');
+}
+
+exports.print = time;
 
 //Stwórz moduł, który będzie poprawnie formatował czas. Zależy nam na napisaniu funkcji:
 //do przekształcania sekund na minuty - przykładowo, podając 125 sekund wyświetli 2 min. 5 sek.
